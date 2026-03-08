@@ -21,12 +21,22 @@ RUN pip install --no-cache-dir \
     torchvision==0.16.2 \
     --index-url https://download.pytorch.org/whl/cu121
 
+# Install BiRefNet dependencies
 RUN pip install --no-cache-dir \
     runpod \
     transformers \
     Pillow \
-    numpy \
-    huggingface_hub
+    "numpy<2" \
+    huggingface_hub \
+    timm \
+    einops \
+    kornia \
+    scipy \
+    scikit-image \
+    accelerate \
+    opencv-python-headless \
+    tqdm \
+    prettytable
 
 # Pre-download BiRefNet model weights during build (faster cold starts)
 RUN python -c "from transformers import AutoModelForImageSegmentation; AutoModelForImageSegmentation.from_pretrained('ZhengPeng7/BiRefNet', trust_remote_code=True)"
