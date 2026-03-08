@@ -1,0 +1,47 @@
+{
+    "title": "BiRefNet Background Removal",
+    "description": "State-of-the-art background removal using BiRefNet (Bilateral Reference Network). Perfect for jewellery, product photography, and e-commerce images. Returns transparent PNG.",
+    "category": "Image",
+    "schema": {
+        "input": [
+            {
+                "name": "image",
+                "type": "string",
+                "description": "Base64 encoded input image",
+                "required": true
+            },
+            {
+                "name": "return_mask",
+                "type": "boolean",
+                "description": "If true, returns only the alpha mask instead of the full RGBA image",
+                "default": false
+            }
+        ],
+        "output": [
+            {
+                "name": "image",
+                "type": "string",
+                "description": "Base64 encoded PNG output with transparent background"
+            },
+            {
+                "name": "width",
+                "type": "integer",
+                "description": "Width of the output image"
+            },
+            {
+                "name": "height",
+                "type": "integer",
+                "description": "Height of the output image"
+            }
+        ]
+    },
+    "allowedCudaVersions": [
+        "12.7",
+        "12.6",
+        "12.5",
+        "12.4",
+        "12.3",
+        "12.2",
+        "12.1"
+    ]
+}
